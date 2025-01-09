@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Well-Quest</title>
+</head>
+<body>
+    <h1>Welcome to Well-Quest</h1>
+    <form method="POST" action="/get-prompt">
+        <label for="topic">Enter a topic (e.g., stress, motivation):</label><br>
+        <input type="text" id="topic" name="topic" required><br><br>
+        <button type="submit">Get Prompt</button>
+    </form>
+    {% if response %}
+        <h2>Prompts for "{{ topic }}":</h2>
+        <ul>
+            {% for prompt in response %}
+                <li>{{ prompt }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
