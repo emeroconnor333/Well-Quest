@@ -8,17 +8,19 @@
 <body>
     <h1>Welcome to Well-Quest</h1>
     <form method="POST" action="/get-prompt">
-        <label for="topic">Enter a topic (e.g., stress, motivation):</label><br>
-        <input type="text" id="topic" name="topic" required><br><br>
+        <label for="topic">How are you feeling today?</label><br>
+        <textarea id="topic" name="topic" rows="5" cols="40" required></textarea><br><br>
         <button type="submit">Get Prompt</button>
     </form>
-    {% if response %}
+        {% if response %}
+        <h2>Sentiment: {{ sentiment }}</h2>
         <h2>Prompts for "{{ topic }}":</h2>
         <ul>
             {% for prompt in response %}
                 <li>{{ prompt }}</li>
             {% endfor %}
         </ul>
-    {% endif %}
+        {% endif %}
+
 </body>
 </html>
